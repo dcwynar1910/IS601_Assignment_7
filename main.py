@@ -32,7 +32,8 @@ def create_directory(path: Path):
         path.mkdir(parents=True, exist_ok=True)
     except Exception as e:
         logging.error(f"Failed to create directory {path}: {e}")
-        exit(1)
+        #exit(1)
+        raise
 
 # Using validators checks the url
 def is_valid_url(url):
@@ -58,6 +59,7 @@ def generate_qr_code(data, path, fill_color='red', back_color='white'):
 
     except Exception as e:
         logging.error(f"An error occurred while generating or saving the QR code: {e}")
+        raise
 
 def main():
     # Set up command-line argument parsing
